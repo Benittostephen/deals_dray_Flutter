@@ -107,6 +107,12 @@ class _ProductScreenState extends State<ProductScreen>
           ),
         ],
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Row(
+          children: [],
+        ),
+      ),
       body: FutureBuilder<ApiResponse>(
         future: fetchHomeData(),
         builder: (context, snapshot) {
@@ -319,78 +325,6 @@ class _ProductScreenState extends State<ProductScreen>
           }
         },
       ),
-      /*SingleChildScrollView(
-        child: Column(
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            Image.network(
-                'https://via.placeholder.com/300x100.png?text=Redmi+Note+7S'),
-            Container(
-              color: Colors.blue[100],
-              padding: EdgeInsets.all(16),
-              child: Column(
-                children: [
-                  Text(
-                    'KYC Pending',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                  ),
-                  SizedBox(height: 8),
-                  Text(
-                    'You need to provide the required documents for your account activation.',
-                    textAlign: TextAlign.center,
-                  ),
-                  SizedBox(height: 8),
-                  TextButton(
-                    onPressed: () {},
-                    child: Text('Click Here'),
-                  ),
-                ],
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(vertical: 16),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  CategoryIcon(icon: Icons.phone_android, label: 'Mobile'),
-                  CategoryIcon(icon: Icons.laptop, label: 'Laptop'),
-                  CategoryIcon(icon: Icons.camera_alt, label: 'Camera'),
-                  CategoryIcon(icon: Icons.tv, label: 'LED'),
-                ],
-              ),
-            ),
-            Container(
-              padding: EdgeInsets.all(16),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text('EXCLUSIVE FOR YOU',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                  SizedBox(height: 16),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      ExclusiveItem(
-                        imageUrl:
-                            'https://via.placeholder.com/100x200.png?text=Phone+1',
-                        discount: '32% Off',
-                      ),
-                      ExclusiveItem(
-                        imageUrl:
-                            'https://via.placeholder.com/100x200.png?text=Phone+2',
-                        discount: '14% Off',
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),*/
       bottomNavigationBar: BottomAppBar(
         height: 110,
         child: Row(
@@ -427,60 +361,6 @@ class _ProductScreenState extends State<ProductScreen>
           ),
         ],
       ),
-    );
-  }
-}
-
-class CategoryIcon extends StatelessWidget {
-  final IconData icon;
-  final String label;
-
-  CategoryIcon({required this.icon, required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        CircleAvatar(
-          radius: 30,
-          child: Icon(icon, size: 30),
-        ),
-        SizedBox(height: 8),
-        Text(label),
-      ],
-    );
-  }
-}
-
-class ExclusiveItem extends StatelessWidget {
-  final String imageUrl;
-  final String discount;
-
-  ExclusiveItem({required this.imageUrl, required this.discount});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Stack(
-          children: [
-            Image.network(imageUrl, width: 100, height: 200, fit: BoxFit.cover),
-            Positioned(
-              top: 8,
-              right: 8,
-              child: Container(
-                color: Colors.green,
-                padding: EdgeInsets.all(4),
-                child: Text(
-                  discount,
-                  style: TextStyle(
-                      color: Colors.white, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ],
     );
   }
 }
